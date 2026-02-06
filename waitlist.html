@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundBridge - The Fair Audio Marketplace</title>
+    <meta name="description" content="A creator-first audio marketplace with 10% fees. Join the waitlist for early access.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --dark: #0f172a;
+            --darker: #020617;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--white);
+            min-height: 100vh;
+        }
+        
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+        }
+        
+        .content {
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        
+        h1 span {
+            background: linear-gradient(135deg, var(--primary), #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light);
+        }
+        
+        .feature-icon {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+        
+        .waitlist-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .waitlist-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .waitlist-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .waitlist-form button {
+            padding: 16px 32px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .waitlist-form button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .form-note {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        .comparison {
+            margin-top: 80px;
+            padding: 40px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .comparison h2 {
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .comparison-table th {
+            color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .comparison-table td:first-child {
+            color: var(--gray);
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .check {
+            color: var(--primary);
+        }
+        
+        .x {
+            color: #ef4444;
+        }
+        
+        footer {
+            padding: 24px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        
+        /* Role selector */
+        .role-selector {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        
+        .role-btn {
+            padding: 12px 24px;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: transparent;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        
+        .role-btn.active {
+            border-color: var(--primary);
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary);
+        }
+        
+        .role-btn:hover {
+            border-color: var(--primary);
+        }
+        
+        @media (max-width: 600px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .comparison {
+                padding: 24px;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <div class="logo">SoundBridge</div>
+        </header>
+        
+        <main>
+            <div class="content">
+                <div class="badge">🚀 Coming Soon</div>
+                
+                <h1>The Audio Marketplace That <span>Pays Fair</span></h1>
+                
+                <p class="subtitle">
+                    Connect with verified audio professionals. 10% fees instead of 20%. 
+                    Built by audio engineers, for audio engineers.
+                </p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>10% Fees</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Verified Pros</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">✓</span>
+                        <span>Audio-Specific</span>
+                    </div>
+                </div>
+                
+                <div class="role-selector">
+                    <button class="role-btn active" onclick="setRole('pro')">I'm an Audio Pro</button>
+                    <button class="role-btn" onclick="setRole('client')">I Need Audio Work</button>
+                </div>
+                
+                <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="hidden" name="role" id="role-input" value="pro">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Join Waitlist</button>
+                </form>
+                
+                <p class="form-note">Be first to know when we launch. No spam, ever.</p>
+                
+                <div class="comparison">
+                    <h2>Why SoundBridge?</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Fiverr</th>
+                                <th>Upwork</th>
+                                <th class="highlight">SoundBridge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Platform Fees</td>
+                                <td>20%</td>
+                                <td>10-20%</td>
+                                <td class="highlight">10%</td>
+                            </tr>
+                            <tr>
+                                <td>Audio Focus</td>
+                                <td class="x">✗</td>
+                                <td class="x">✗</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Verified Credentials</td>
+                                <td class="x">✗</td>
+                                <td class="x">✗</td>
+                                <td class="check">✓</td>
+                            </tr>
+                            <tr>
+                                <td>Fair Pricing</td>
+                                <td class="x">Race to bottom</td>
+                                <td class="x">Race to bottom</td>
+                                <td class="check">✓ Guided rates</td>
+                            </tr>
+                            <tr>
+                                <td>Audio File Tools</td>
+                                <td>Basic</td>
+                                <td>Basic</td>
+                                <td class="highlight">Built for audio</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2026 SoundBridge. Building the future of audio work.</p>
+        </footer>
+    </div>
+    
+    <script>
+        function setRole(role) {
+            document.getElementById('role-input').value = role;
+            document.querySelectorAll('.role-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
