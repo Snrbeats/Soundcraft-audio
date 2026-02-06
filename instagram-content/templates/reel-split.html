@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1080px;
+      height: 1920px;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Arial Black', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .top-half {
+      flex: 1;
+      background: linear-gradient(180deg, #1a0a0a 0%, #2d1515 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .bottom-half {
+      flex: 1;
+      background: linear-gradient(180deg, #0d2818 0%, #0a1a0a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    /* Divider line */
+    .divider {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #ff3333 0%, #ffffff 50%, #00ff88 100%);
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+    
+    .before-text {
+      font-size: 120px;
+      font-weight: 900;
+      color: #ff3333;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      text-shadow: 
+        3px 3px 0 #ff0000,
+        -3px -3px 0 #00ffff;
+    }
+    
+    .after-text {
+      font-size: 120px;
+      font-weight: 900;
+      color: #00ff88;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      text-shadow: 
+        0 0 30px rgba(0,255,136,0.5);
+    }
+    
+    .waveform {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 50px;
+    }
+    
+    .wave-bar {
+      width: 10px;
+      border-radius: 5px;
+    }
+    
+    .wave-bar.messy {
+      background: linear-gradient(180deg, #ff3333 0%, #661111 100%);
+      opacity: 0.8;
+    }
+    
+    .wave-bar.clean {
+      background: linear-gradient(180deg, #00ff88 0%, #006633 100%);
+    }
+    
+    .label {
+      font-size: 36px;
+      color: #666;
+      margin-top: 30px;
+      letter-spacing: 15px;
+      font-weight: 400;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    .brand {
+      position: absolute;
+      bottom: 60px;
+      font-size: 32px;
+      letter-spacing: 12px;
+      color: #444;
+      font-weight: 400;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    .icon {
+      font-size: 60px;
+      opacity: 0.4;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-half">
+    <div class="icon">⚠️</div>
+    <div class="before-text">BEFORE</div>
+    <div class="waveform">
+      <div class="wave-bar messy" style="height: 100px;"></div>
+      <div class="wave-bar messy" style="height: 30px;"></div>
+      <div class="wave-bar messy" style="height: 160px;"></div>
+      <div class="wave-bar messy" style="height: 20px;"></div>
+      <div class="wave-bar messy" style="height: 180px;"></div>
+      <div class="wave-bar messy" style="height: 50px;"></div>
+      <div class="wave-bar messy" style="height: 120px;"></div>
+      <div class="wave-bar messy" style="height: 200px;"></div>
+      <div class="wave-bar messy" style="height: 40px;"></div>
+      <div class="wave-bar messy" style="height: 90px;"></div>
+      <div class="wave-bar messy" style="height: 170px;"></div>
+      <div class="wave-bar messy" style="height: 25px;"></div>
+    </div>
+    <div class="label">RAW AUDIO</div>
+  </div>
+  
+  <div class="divider"></div>
+  
+  <div class="bottom-half">
+    <div class="icon">✓</div>
+    <div class="after-text">AFTER</div>
+    <div class="waveform">
+      <div class="wave-bar clean" style="height: 80px;"></div>
+      <div class="wave-bar clean" style="height: 100px;"></div>
+      <div class="wave-bar clean" style="height: 90px;"></div>
+      <div class="wave-bar clean" style="height: 110px;"></div>
+      <div class="wave-bar clean" style="height: 95px;"></div>
+      <div class="wave-bar clean" style="height: 105px;"></div>
+      <div class="wave-bar clean" style="height: 85px;"></div>
+      <div class="wave-bar clean" style="height: 115px;"></div>
+      <div class="wave-bar clean" style="height: 92px;"></div>
+      <div class="wave-bar clean" style="height: 102px;"></div>
+      <div class="wave-bar clean" style="height: 88px;"></div>
+      <div class="wave-bar clean" style="height: 108px;"></div>
+    </div>
+    <div class="label">PROCESSED</div>
+    <div class="brand">SOUNDCRAFT</div>
+  </div>
+</body>
+</html>

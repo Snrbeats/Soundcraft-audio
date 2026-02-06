@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 80px;
+        }
+        
+        h2 {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 60px;
+            opacity: 0.8;
+        }
+        
+        .solution-list {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+        
+        .solution {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-size: 48px;
+            font-weight: 700;
+        }
+        
+        .check {
+            color: #10b981;
+            font-size: 56px;
+        }
+        
+        .logo {
+            position: absolute;
+            bottom: 60px;
+            font-size: 24px;
+            font-weight: 700;
+            opacity: 0.6;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Professional audio processing:</h2>
+    <div class="solution-list">
+        <div class="solution">
+            <span class="check">✓</span>
+            <span>Noise reduction</span>
+        </div>
+        <div class="solution">
+            <span class="check">✓</span>
+            <span>Compression</span>
+        </div>
+        <div class="solution">
+            <span class="check">✓</span>
+            <span>EQ optimization</span>
+        </div>
+        <div class="solution">
+            <span class="check">✓</span>
+            <span>Loudness normalization</span>
+        </div>
+    </div>
+    <div class="logo">SOUNDCRAFT</div>
+</body>
+</html>
