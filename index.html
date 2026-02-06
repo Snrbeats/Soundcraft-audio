@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Audio Services | Mixing, Mastering, Sound Design</title>
+    <meta name="description" content="Professional audio engineering services for podcasters, content creators, and artists. BSc-qualified engineer delivering broadcast-ready sound.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .cta-btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .cta-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--gray);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--white);
+        }
+        
+        /* Credentials */
+        .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .credential {
+            text-align: center;
+        }
+        
+        .credential-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .credential p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--dark) 0%, #1e1b4b 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Process */
+        .process {
+            padding: 100px 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 12px;
+        }
+        
+        .step p {
+            color: var(--gray);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+        
+        .cta-section .cta-btn {
+            background: var(--white);
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 16px 32px;
+        }
+        
+        /* Contact Form */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .credentials {
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Sound<span>Craft</span></a>
+            <a href="#contact" class="cta-btn">Get a Quote</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Your Audio, <span>Perfected</span></h1>
+            <p>Professional audio engineering for podcasters, creators, and artists. BSc-qualified engineer delivering broadcast-ready sound that makes you stand out.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-btn">Start Your Project</a>
+                <a href="#services" class="btn-secondary">View Services</a>
+            </div>
+            
+            <div class="credentials">
+                <div class="credential">
+                    <div class="credential-icon">🎓</div>
+                    <p>BSc Audio Engineering</p>
+                </div>
+                <div class="credential">
+                    <div class="credential-icon">⚡</div>
+                    <p>48hr Turnaround</p>
+                </div>
+                <div class="credential">
+                    <div class="credential-icon">🎯</div>
+                    <p>100% Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Services</h2>
+                <p>Everything you need to sound professional</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎙️</div>
+                    <h3>Podcast Production</h3>
+                    <p>Full-service podcast audio: editing, mixing, noise removal, and mastering. Sound like a pro studio.</p>
+                    <div class="service-price">From $150/episode</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3>Content Creator Audio</h3>
+                    <p>Clean, punchy audio for YouTube, TikTok, and social. Make your content sound as good as it looks.</p>
+                    <div class="service-price">From $75/video</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎹</div>
+                    <h3>Custom Music</h3>
+                    <p>Original compositions for your brand, game, or content. Unique sound that's 100% yours to own.</p>
+                    <div class="service-price">From $300/track</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎚️</div>
+                    <h3>Mixing & Mastering</h3>
+                    <p>Radio-ready mixes and masters for your music. Balanced, polished, and competitively loud.</p>
+                    <div class="service-price">From $150/track</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔊</div>
+                    <h3>Sound Design</h3>
+                    <p>Custom sound effects, UI sounds, and audio branding for apps, games, and videos.</p>
+                    <div class="service-price">From $500/project</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Monthly Retainer</h3>
+                    <p>Unlimited revisions, priority turnaround, and dedicated support. Best value for regular content.</p>
+                    <div class="service-price">From $800/month</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Simple process, professional results</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tell Me About Your Project</h3>
+                    <p>Fill out the form below with your project details and goals.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get a Custom Quote</h3>
+                    <p>I'll review your needs and send a detailed quote within 24 hours.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Upload Your Files</h3>
+                    <p>Send your raw audio through our secure file transfer system.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Receive Polished Audio</h3>
+                    <p>Get your broadcast-ready files with unlimited revisions until you're happy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Sound Professional?</h2>
+            <p>Get a free quote for your project in 24 hours or less.</p>
+            <a href="#contact" class="cta-btn">Get Started Free</a>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Start Your Project</h2>
+                <p>Tell me about your audio needs</p>
+            </div>
+            
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="podcast">Podcast Production</option>
+                        <option value="content">Content Creator Audio</option>
+                        <option value="music">Custom Music</option>
+                        <option value="mixing">Mixing & Mastering</option>
+                        <option value="sound-design">Sound Design</option>
+                        <option value="retainer">Monthly Retainer</option>
+                        <option value="other">Other / Not Sure</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Budget Range</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select budget...</option>
+                        <option value="under-500">Under $500</option>
+                        <option value="500-1000">$500 - $1,000</option>
+                        <option value="1000-2500">$1,000 - $2,500</option>
+                        <option value="2500-plus">$2,500+</option>
+                        <option value="ongoing">Ongoing/Retainer</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="details" placeholder="Tell me about your project, timeline, and any specific requirements..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 SoundCraft Audio Services. Let's make something great.</p>
+        </div>
+    </footer>
+</body>
+</html>
